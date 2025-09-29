@@ -1,0 +1,114 @@
+/* ===== Plan-tabell – generellt tema ===== */
+:root{
+  --plan-fg: #111;
+  --plan-bg: #fff;
+  --plan-muted: #667085;
+  --plan-border: #e5e7eb;
+  --plan-head-bg: #0b5cab;   /* rubrikrad */
+  --plan-head-fg: #fff;
+  --plan-row-hover: #f6f7f9;
+
+  /* Veckofärger (ljusa nyanser) – ändra fritt */
+  --week-40: #e6f2ff;
+  --week-41: #f2ffe6;
+  --week-42: #fff5e6;
+  --week-43: #f9e6ff;
+  --week-44: #ffe6e6; /* lov / avvikelse */
+  --week-45: #e6f7ff;
+}
+
+@media (prefers-color-scheme: dark){
+  :root{
+    --plan-fg: #eaeaea;
+    --plan-bg: #0c1116;
+    --plan-muted: #9aa4af;
+    --plan-border: #263241;
+    --plan-head-bg: #0e3e73;
+    --plan-head-fg: #eaf2ff;
+    --plan-row-hover: #111826;
+
+    --week-40: #102235;
+    --week-41: #142e20;
+    --week-42: #2e2514;
+    --week-43: #2c1f34;
+    --week-44: #3a1c1c;
+    --week-45: #102a34;
+  }
+}
+
+/* Bas */
+table.plan{
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  background: var(--plan-bg);
+  color: var(--plan-fg);
+  font-size: 0.95rem;
+  border: 1px solid var(--plan-border);
+  border-radius: 12px;
+  overflow: hidden; /* rundade hörn */
+}
+
+/* Rubrikrad */
+.plan thead th{
+  position: sticky; top: 0;
+  background: var(--plan-head-bg);
+  color: var(--plan-head-fg);
+  text-align: left;
+  padding: .7rem .75rem;
+  font-weight: 600;
+}
+
+/* Celler */
+.plan td{
+  border-top: 1px solid var(--plan-border);
+  padding: .55rem .75rem;
+  vertical-align: top;
+}
+.plan tbody tr:hover td{ background: var(--plan-row-hover); }
+
+/* Små hjälptricks */
+.plan td.nowrap{ white-space: nowrap; }
+.plan td.center{ text-align: center; }
+.plan tr.holiday td{
+  font-style: italic; font-weight: 600;
+  text-align: center;
+}
+
+/* Zebra om du vill, men färger per vecka dominerar ändå */
+.plan tbody tr:nth-child(even) td{ filter: brightness(0.99); }
+
+/* Färger per vecka via data-attribut (rekommenderat) */
+.plan tbody tr[data-week="40"]  td{ background: var(--week-40); }
+.plan tbody tr[data-week="41"]  td{ background: var(--week-41); }
+.plan tbody tr[data-week="42"]  td{ background: var(--week-42); }
+.plan tbody tr[data-week="43"]  td{ background: var(--week-43); }
+.plan tbody tr[data-week="44"]  td{ background: var(--week-44); }
+.plan tbody tr[data-week="45"]  td{ background: var(--week-45); }
+
+/* Responsiv: stacka de smalaste kolumnerna på mobil */
+@media (max-width: 720px){
+  .plan thead{ display: none; }
+  .plan, .plan tbody, .plan tr, .plan td{ display: block; width: 100%; }
+  .plan tr{ border-top: 1px solid var(--plan-border); padding: .5rem .5rem; }
+  .plan td{ border: 0; padding: .25rem .5rem; }
+  .plan td::before{
+    content: attr(data-label) ": ";
+    font-weight: 600; color: var(--plan-muted);
+  }
+  .plan tr.holiday td::before{ content: ""; }
+}
+
+/* Utskrift */
+@media print{
+  table.plan{
+    font-size: 10pt; color: #000; border-color: #000;
+  }
+  .plan thead th{
+    color: #000; background: #fff; border-bottom: 2px solid #000;
+  }
+  .plan td{
+    border-color: #000;
+    background: #fff !important; /* ren utskrift */
+  }
+}
