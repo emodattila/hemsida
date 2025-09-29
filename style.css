@@ -1,0 +1,39 @@
+:root{
+  --bg:#ffffff; --fg:#111; --muted:#666; --accent:#0a7; --card:#f6f7f8; --border:#e2e5e7;
+  color-scheme: light;
+  font-family: system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);line-height:1.6}
+a{color:inherit}
+.container{max-width:1000px;margin:0 auto;padding:1rem 1rem}
+.site-header{border-bottom:1px solid var(--border);position:sticky;top:0;background:#fff;z-index:10}
+.header-inner{display:flex;gap:1rem;align-items:center;justify-content:space-between}
+.brand{font-weight:700;text-decoration:none}
+.nav{display:flex;gap:1rem;align-items:center}
+.nav a{text-decoration:none;padding:.5rem .25rem}
+.menu-toggle{display:none;background:none;border:1px solid var(--border);padding:.3rem .5rem;border-radius:.5rem}
+.dropdown{position:relative}
+.dropbtn{background:none;border:none;padding:.5rem .25rem;cursor:pointer}
+.dropdown-content{display:none;position:absolute;background:#fff;border:1px solid var(--border);border-radius:.5rem;min-width:200px;box-shadow:0 4px 16px rgba(0,0,0,.08)}
+.dropdown:hover .dropdown-content{display:block}
+.dropdown-content a{display:block;padding:.5rem .75rem;text-decoration:none;border-bottom:1px solid var(--border)}
+.dropdown-content a:last-child{border-bottom:none}
+.hero{padding:2rem 0}
+.chip{display:inline-block;border:1px solid var(--border);border-radius:999px;padding:.4rem .8rem;margin:.25rem;text-decoration:none;background:#fff}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem}
+.card{display:block;background:var(--card);padding:1rem;border:1px solid var(--border);border-radius:1rem;text-decoration:none}
+.card h3{margin:.2rem 0}
+.notes{padding-left:1rem}
+.notes li{margin:.25rem 0}
+.muted{color:var(--muted)}
+.breadcrumbs{font-size:.9rem;color:var(--muted);margin-top:1rem}
+.plan{width:100%;border-collapse:collapse;margin:1rem 0}
+.plan th,.plan td{border:1px solid var(--border);padding:.5rem;text-align:left}
+.site-footer{border-top:1px solid var(--border);margin-top:2rem;padding:1rem 0;text-align:center}
+@media (max-width: 780px){
+  .nav{display:none;flex-direction:column;align-items:flex-start;background:#fff;position:absolute;top:56px;left:0;right:0;border-bottom:1px solid var(--border);padding:1rem}
+  .nav.open{display:flex}
+  .menu-toggle{display:inline-block}
+  .dropdown:hover .dropdown-content{position:static;display:block;border:none;box-shadow:none}
+}

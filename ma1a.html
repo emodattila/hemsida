@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="sv">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Matte & Fysik – Timrå</title>
+  <meta name="description" content="Resurser, planeringar och länkar för kurser i matematik och fysik på Timrå gymnasium.">
+  <link rel="stylesheet" href="style.css"/>
+  <script>
+    function toggleMenu() {
+      document.getElementById('nav').classList.toggle('open');
+    }
+  </script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="index.html">Matte & Fysik</a>
+    <nav id="nav" class="nav">
+      <a href="index.html">Start</a>
+      <a href="links.html">Länkar</a>
+      <div class="dropdown">
+        <button class="dropbtn">Kurser</button>
+        <div class="dropdown-content">
+          <a href="ma1a.html">Matematik 1a</a>
+          <a href="ma2b.html">Matematik 2b</a>
+          <a href="ma3c.html">Matematik 3c</a>
+          <a href="fysik1a.html">Fysik 1a</a>
+          <a href="fysik2.html">Fysik 2</a>
+        </div>
+      </div>
+      <a href="#kontakt">Kontakt</a>
+    </nav>
+    <button class="menu-toggle" onclick="toggleMenu()" aria-label="Öppna meny">☰</button>
+  </div>
+</header>
+
+<main class="container">
+
+<section class="breadcrumbs"><a href="index.html">Start</a> / Matematik 1a</section>
+<h1>Matematik 1a</h1>
+<p class="muted">Preliminär planering HT/VT. Uppdateras löpande.</p>
+
+<h2>Översikt</h2>
+<ul>
+  <li>Tal, procent, algebra: uttryck med parenteser, ekvationer</li><li>Geometri: area/volym, skala</li><li>Samband & förändring: linjära modeller</li><li>Sannolikhet & statistik: läges- och spridningsmått</li>
+</ul>
+
+<h2>Planering</h2>
+<table class="plan">
+  <thead><tr><th>Vecka</th><th>Innehåll</th><th>Material</th></tr></thead>
+  <tbody>
+    <tr><td>40</td><td>Introduktion, målsättningar, diagnos</td><td><a href="#">Startövningar</a></td></tr>
+    <tr><td>41</td><td>Kapitel 1</td><td><a href="#">Arbetsblad 1</a></td></tr>
+    <tr><td>42</td><td>Kapitel 2</td><td><a href="#">Arbetsblad 2</a></td></tr>
+    <tr><td>43</td><td>Repetition + prov</td><td><a href="#">Repetitionsblad</a></td></tr>
+  </tbody>
+</table>
+
+<h2>Länkar & resurser</h2>
+<ul>
+  <li><a href="https://www.formelsamlingen.se/" target="_blank" rel="noopener">Formelsamlingen</a></li>
+  <li><a href="https://www.matematik-och-fysikprovet.se/tidigare-prov/" target="_blank" rel="noopener">Tidigare prov – Matematik- och fysikprovet</a></li>
+</ul>
+
+</main>
+<footer class="site-footer" id="kontakt">
+  <div class="container">
+    <p>© <span id="year"></span> Ditt Namn · Timrå gymnasium · <a href="mailto:kontakt@exempel.se">kontakt@exempel.se</a></p>
+    <p class="muted">Denna sajt använder inga cookies eller spårning.</p>
+  </div>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</footer>
+</body>
+</html>
